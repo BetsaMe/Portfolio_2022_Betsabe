@@ -82,8 +82,7 @@ nav{
     border: var(--linesStyle);
 }
 
-ul{ 
-    list-style: none;
+header .home{ 
     padding: 0;  
     height: 85px;
     width: 15%;
@@ -91,10 +90,13 @@ ul{
     flex-direction: column;
     justify-content:center;
     margin: 0;
+    border-right:var(--linesStyle);
+    transition: 0.45s ease;
 }
 
-li{
+.home p{
    padding-left: 30%;
+   margin: 0;
 }
 
 .btn-profile{
@@ -111,6 +113,7 @@ li{
     transition: 0.45s ease;
 }
 
+.home-profile:hover,
 .btn-profile:hover,
 .btn-profile:focus{
     box-shadow: inset 0 -7.5em 0 0 #97adff;
@@ -167,7 +170,7 @@ a{
 .container-CTA{
     display: flex;
     justify-content: space-between;
-    margin-top: 100px;  
+    margin-top: 100px; 
 }
 
 .btn-download{
@@ -253,11 +256,9 @@ a{
 .bloc-projet{
     display: grid;
     grid-template-columns: 15% 1fr 1fr 15%;
+    grid-template-rows: 1fr;
 }
-.projet-text{
-    position: relative;
-    overflow: hidden; 
-}
+
 .projet-01 .projet-text, .projet-02 .img-container{
     grid-column: 2/3; 
 }
@@ -265,6 +266,11 @@ a{
     grid-column: 3/4;  
 }
 
+/* here the position is relative because the parallax */
+.projet-text{
+    position: relative;
+    overflow: hidden; 
+}
 .bigNumber{
     position: relative;
     font-size: 180px;
@@ -281,12 +287,12 @@ a{
 .projet-description h3{
     margin: 0;
 }
-.projet-description a{
+.projet-description p{
+    font-size: 16px;
+}
+.btn-arrow{
     float: right;
     margin-bottom: 15px; 
-}
-
-.btn-arrow{
     border: solid 1px var(--black);
     border-radius: 100%;
     height: 65px;
@@ -301,7 +307,7 @@ a{
 }
 
 .img-container{
-    overflow: hidden;    
+    overflow: hidden;   
 }
 .projet-img{
     object-fit: cover;
@@ -309,34 +315,35 @@ a{
     width: 100%;
 }
 
-.separator{
-    height: 100px;
-    width: 100%;
-    border-bottom: var(--linesStyle);
-    border-top: var(--linesStyle);
-}
-
-.projet-01:hover, .projet-02:hover{    
+#projet01:hover, #projet02:hover, #projet03:hover, #projet04:hover{    
     transition-property: background-color;
     transition-duration: 1s;
 }
 
-.projet-01:hover{
+#projet01:hover, #projet04:hover {
     background-color: var(--blue);
 }
 
-.projet-02:hover{
+#projet02:hover{
     background-color: var(--violet);
+}
+#projet03:hover{
+    background-color: var(--green);
 }
 
 /* #bloc-projet-01:hover .projet-img, #bloc-projet-02:hover .projet-img {
     transform: scale(1.2);
     transition: transform 0.7s ease-in-out;
 } */
-
+.separator{
+    height: 100px;
+    width: 100%;
+    border-bottom: var(--linesStyle);
+    border-top: var(--linesStyle);
+}
 /* Projet labels */
 .tech-label-container{
-    margin: 35px 0;
+    margin: 20px 0;
     display: flex;
     flex-wrap: wrap;
 }
@@ -345,8 +352,7 @@ a{
     background-color: var(--black);
     color: #ffffff;
     padding: 5px 10px; 
-    margin-right: 10px;
-    margin-top: 10px;
+    margin: 10px 10px 0 0;
     border-radius: 0 20px 20px 0;
 }
 
@@ -360,8 +366,7 @@ a{
 
 .bloc-contact{
     width: 70%;
-    display: flex;   
-    justify-content: center;
+    display: flex; 
     height: 400px;
     background-color: var(--violet);
     overflow: hidden;
@@ -369,7 +374,6 @@ a{
 
 .bloc-contact p, .bloc-contact ul{
     width: 50%;
-    padding: 40px;
 }
 
 .bloc-contact p{
@@ -383,25 +387,37 @@ a{
   
 }
 .bloc-contact ul{
-    align-self: center;
     height: 100%;
     z-index: 1;
-    text-align: center;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
 }
-.bloc-contact li{
+
+.bloc-contact a{
     font-weight: bold;
     color: var(--grey2);
     font-size: 18px;
     padding: 0;
-}
-.bloc-contact li:hover{
-    color: var(--pink);  
-}
-.bloc-contact a{
-    text-decoration: none;
     margin-bottom: 20px; 
+    min-width: 120px;
 }
 
+.bloc-contact a:hover{
+    color: var(--pink);  
+}
+
+.creator{
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
 
 /* main{
     position: fixed;
@@ -410,7 +426,35 @@ a{
     left: 0;
 } */
 
-@media only screen and (max-width: 1024px){}
+/* about section */
+#about h2{
+    padding-left: 50px;
+    margin: 0;
+    border-top: none;
+}
+#about{
+    width: 70%;
+    margin: auto;
+}
+.about{
+    width: 100%;
+    display: flex;
+}
+.about .paragraph, .about img{
+    width: 50%;
+}
+.about .paragraph{
+    padding: 80px;
+}
+.about img{
+    object-fit: cover;
+    height: 100%;
+}
+@media only screen and (max-width: 1024px){
+    .about .paragraph{
+        padding: 10px;
+    }
+}
 @media only screen and (max-width: 768px){
     .line{
         width: 70%; 
@@ -418,6 +462,9 @@ a{
     }
     .line1{
         display: none;
+    }
+    nav, header .home {
+        height: 65px;
     }
     .bloc-projet{ 
         grid-template-columns: 10% 1fr 10%;
@@ -440,7 +487,7 @@ a{
         width: 100%;
         padding-left: 0px;
     }
-    ul, .btn-profile{   
+    .home, .btn-profile{   
         height: 65px;
         min-width: 115px;
     }
@@ -465,6 +512,14 @@ a{
     .presentation{
         font-size:35px;
     }
+    .bigNumber{
+        font-size: 140px;
+        left: -5%; 
+    }
+    .img-container{
+        height: 350px;  
+    }
+    
     @keyframes roll {
         0% {
             width: 0px;      
@@ -480,6 +535,24 @@ a{
     .bloc-contact p{
         font-size: 100px;
         bottom: -40px;
+    }
+    .bloc-contact a{
+        font-size: 15px;
+    }
+    #about{
+        width: 80%;
+    }
+    .about .paragraph{
+        padding: 10px;
+    }
+    .about{
+        flex-direction: column;
+    }
+    .about .paragraph{
+        width: 100%;
+    }
+    .about img{
+        margin: auto;
     }
 }
 
@@ -504,9 +577,44 @@ a{
         width: 100%;
         padding: 0 20px;
     }
+     #about{
+        width: 100%;
+    }
+    
     .bloc-contact p{
         font-size: 75px;
         bottom: -30px;
     }
+    .bloc-contact a{
+        margin-bottom: 10px;
+        padding: 0;
+    }
+    .bigNumber{
+        font-size: 120px;
+        left: -9%; 
+    }
+    .img-container{
+        height: 300px;  
+    }
+    h2{
+        text-align: center;
+    }
+    h1{
+        margin-top: 30px;
+    }
+    .container-CTA{
+        margin: 30px 0;
+    }
+    .container-CTA p{
+        margin-top: 30px;
+    }
+    .separator{
+        height: 40px;
+    }
+    .btn-arrow{
+        height: 55px;
+        width: 55px;
+    }
+    
 }
 
