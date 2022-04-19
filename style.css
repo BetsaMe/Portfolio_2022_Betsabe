@@ -1,7 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,200;1,300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,200;1,300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@100;200&display=swap');
 
 @font-face {
     font-family: 'Butler Ultralight';
@@ -20,10 +17,9 @@
 --blue:#BBE8F6;
 --white-bg: #f4f4f4;
 --pink: #f1a1e3;
+--beige:#F9EDDB;
 --linesStyle:solid 0.8px var(--grey3);
 --underline-padding-x: 0.12em;
---cap-image-left: url(https://files-d4s40otz1.now.sh/left.svg);
---cap-image-right: url(https://files-4vvqilj8v.now.sh/right.svg);
 }
 
 *{
@@ -32,16 +28,9 @@
 html{
     scroll-behavior: smooth;
 }
+/* Hide or show scrollbar */
 body::-webkit-scrollbar {
     display: none;
-  }
-body{
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--white-bg);
-    margin: 0;
-    padding: 0;
-    position: relative;
-    color: var(--grey2);
 }
 
 /* lines background */
@@ -62,7 +51,14 @@ body{
     border-left: var(--linesStyle);
 }
 /* End lines background */
-
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--white-bg);
+    margin: 0;
+    padding: 0;
+    position: relative;
+    color: var(--grey2);
+}
 header{
     position: sticky; 
     top: 0; 
@@ -106,7 +102,6 @@ header .home{
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    text-decoration: none;
     font-size: 16px;
     font-weight: bold;
     border-left:var(--linesStyle);
@@ -121,7 +116,8 @@ header .home{
     font-weight: normal;
 }
 
-#hero{
+/* Hero section */
+#hero , #about, #contact{
     display: flex ;
     width: 100%;
     margin: auto;
@@ -154,18 +150,23 @@ a{
     font-size:55px;
     margin: 0;  
 }
-.underlined {
-    background-image:
-    linear-gradient(180deg, var(--pink), var(--pink)),
-    var(--cap-image-left),
-    var(--cap-image-right);
+.underlined, .underlined-02{
+    background-image:linear-gradient(180deg, var(--pink), var(--pink));
     background-repeat: no-repeat;
-    background-size: 100% 0.2em;
     background-position: 0 88%;
     transition: background-size 0.5s ease;
 }
+.underlined {
+    background-size: 100% 0.2em;
+}
+.underlined-02 {
+    background-size:0 40%;
+}
 .underlined:hover{
     background-size: 100% 80%;
+}
+.underlined-02:hover{
+    background-size:100% 40%;
 }
 .container-CTA{
     display: flex;
@@ -184,7 +185,6 @@ a{
     border:var(--linesStyle);
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    font-size: 16px;
     color: var(--grey1);
     margin: auto;
     text-transform: uppercase;
@@ -203,40 +203,47 @@ a{
     width: 50%;
     padding-left: 20px;
 }
+/* End of hero section */
 
 /* Decorative blocs */
-.green-bloc{
+.green-bloc, .beige-bloc, .blue-bloc, .blue-bloc-2{
     position: relative;
     width: 15%;
-    height: 270px;
-    background-color: var(--green);
     z-index: -1;
-    margin-top: -8%;
-    animation: roll2 2s;
+}
+.green-bloc{
+    background-color: var(--green);
+    margin-top: -85px;
+}
+.beige-bloc{
+    background-color: var(--beige);
+}
+.green-bloc, .beige-bloc{
+    height: 270px;
     transform-origin: top center;
     transition-property: height;
     transition-duration: 2.5s;
+    animation: roll2 2s;
 }
-@keyframes roll2 {
-    0% {
-        height: 0px; 
-    }
-    100% {
-        height: 270px;
-    }
-} 
-
 .blue-bloc{
-    position: relative;
-    margin-top: 10%;
-    width: 15%;
-    height: 280px;
     background-color: var(--blue);
     animation: roll 1.5s;
     transform-origin: bottom center;
     transition-property: width;
     transition-duration: 1s;
+    margin-top: 10%;
+    height: 280px;
 }
+.blue-bloc-2{
+    height: 60vh;
+    margin-top: -273px;
+    transform-origin: top center;
+    transition-property: height;
+    transition-duration: 2.5s;
+    animation: roll3 2s;
+    background-color: var(--blue);    
+}
+ 
 @keyframes roll {
     0% {
         width: 0px;      
@@ -245,13 +252,25 @@ a{
         width: 15%;
     }
 }
+@keyframes roll2 {
+    0% {
+        height: 0px; 
+    }
+    100% {
+        height: 270px;
+    }
+}
+@keyframes roll3 {
+    0% {
+        height: 0px; 
+    }
+    100% {
+        height: 60vh;
+    }
+}
 /* End decorative blocs */
 
 /* Projects section */
-
-#projet01, #projet02{    
-    width: 100%;
-}
 
 .bloc-projet{
     display: grid;
@@ -266,12 +285,13 @@ a{
     grid-column: 3/4;  
 }
 
+
 /* here the position is relative because the parallax */
 .projet-text{
     position: relative;
     overflow: hidden; 
 }
-.bigNumber{
+.big-number{
     position: relative;
     font-size: 180px;
     font-family: 'Butler Ultralight', serif;
@@ -314,8 +334,11 @@ a{
     height: 100%;
     width: 100%;
 }
-
-#projet01:hover, #projet02:hover, #projet03:hover, #projet04:hover{    
+#projet01, #projet02, #projet03, #projet04{    
+    transition-property: background-color;
+    transition-duration: 1s;
+}
+/* #projet01:hover, #projet02:hover, #projet03:hover, #projet04:hover{    
     transition-property: background-color;
     transition-duration: 1s;
 }
@@ -329,12 +352,8 @@ a{
 }
 #projet03:hover{
     background-color: var(--green);
-}
-
-/* #bloc-projet-01:hover .projet-img, #bloc-projet-02:hover .projet-img {
-    transform: scale(1.2);
-    transition: transform 0.7s ease-in-out;
 } */
+
 .separator{
     height: 100px;
     width: 100%;
@@ -358,8 +377,6 @@ a{
 
 /* Contact section */
 #contact{
-    width: 100%;
-    display: flex;
     justify-content: center;
     align-content: center;
 }
@@ -374,13 +391,13 @@ a{
 
 .bloc-contact p, .bloc-contact ul{
     width: 50%;
+    padding: 0;
+    margin: 0;
 }
 
 .bloc-contact p{
     font-size: 140px;
     font-family: 'Butler Ultralight', serif;
-    padding: 0;
-    margin: 0;
     align-self: flex-end;
     position: relative;
     bottom: -60px;
@@ -393,22 +410,14 @@ a{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
+    justify-content: center;    
 }
 
 .bloc-contact a{
-    font-weight: bold;
     color: var(--grey2);
-    font-size: 18px;
+    font-size: 17px;
     padding: 0;
-    margin-bottom: 20px; 
-    min-width: 120px;
-}
-
-.bloc-contact a:hover{
-    color: var(--pink);  
+    margin-bottom: 20px;     
 }
 
 .creator{
@@ -418,6 +427,7 @@ a{
     align-items: center;
     height: 50px;
 }
+/* End of contact section */
 
 /* main{
     position: fixed;
@@ -426,32 +436,27 @@ a{
     left: 0;
 } */
 
-/* about section */
-#about h2{
-    padding-left: 50px;
-    margin: 0;
-    border-top: none;
-}
-#about{
+/* About section */
+.center-bloc-about{
     width: 70%;
-    margin: auto;
-}
-.about{
-    width: 100%;
     display: flex;
 }
-.about .paragraph, .about img{
+.center-bloc-about .paragraph, .center-bloc-about img{
     width: 50%;
 }
-.about .paragraph{
-    padding: 80px;
+.center-bloc-about .paragraph{
+    padding: 20px;
 }
-.about img{
+.center-bloc-about img{
     object-fit: cover;
     height: 100%;
 }
+.about-title{
+    margin: 0;
+    border-top: none;
+}
 @media only screen and (max-width: 1024px){
-    .about .paragraph{
+    .center-bloc-about .paragraph{
         padding: 10px;
     }
 }
@@ -466,19 +471,7 @@ a{
     nav, header .home {
         height: 65px;
     }
-    .bloc-projet{ 
-        grid-template-columns: 10% 1fr 10%;
-    }  
-    .projet-01 .projet-text, .projet-02 .img-container, .projet-02 .projet-text, .projet-01 .img-container{
-        grid-column: 2/3;
-    }
-  
-    .projet-01 .img-container{
-        grid-row: 1/2;
-    }
-    .img-container{
-        border-bottom: var(--linesStyle);
-    }
+
     .container-CTA{
         flex-direction: column;
     }
@@ -495,8 +488,16 @@ a{
         width: 80%;
         padding: 10px;
     }
-    .green-bloc , .blue-bloc{
+    .green-bloc , .blue-bloc, .beige-bloc, .blue-bloc-2{
         width: 10%;
+    }
+    @keyframes roll {
+        0% {
+            width: 0px;      
+        } 
+        100% {
+            width: 10%;
+        }
     }
     .line{
         width: 80%;
@@ -512,22 +513,32 @@ a{
     .presentation{
         font-size:35px;
     }
-    .bigNumber{
+    
+    .bloc-projet{ 
+        grid-template-columns: 10% 1fr 10%;
+        grid-template-rows: 350px 1fr;
+    }  
+    .projet-02 .img-container, .projet-02 .projet-text{
+        grid-column: 2/3;
+    }
+    .projet-01 .projet-text{
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+    
+    .projet-01 .img-container{
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+    .big-number{
         font-size: 140px;
         left: -5%; 
     }
     .img-container{
-        height: 350px;  
+        border-bottom: var(--linesStyle);
+        height: 350px; 
     }
-    
-    @keyframes roll {
-        0% {
-            width: 0px;      
-        } 
-        100% {
-            width: 10%;
-        }
-    }
+    /* Contact section */
     .bloc-contact{
         width: 80%;
         height: 270px;
@@ -539,34 +550,28 @@ a{
     .bloc-contact a{
         font-size: 15px;
     }
-    #about{
+    /* About section */
+   
+    .center-bloc-about{
+        flex-direction: column;
         width: 80%;
     }
-    .about .paragraph{
+
+    #about .paragraph{
         padding: 10px;
-    }
-    .about{
-        flex-direction: column;
-    }
-    .about .paragraph{
         width: 100%;
-    }
-    .about img{
+    }   
+    #about img{
         margin: auto;
     }
 }
 
 
 @media screen and (max-width: 480px){
-    .bg-lines{
+    .bg-lines, #green-bloc,#blue-bloc, .beige-bloc, .blue-bloc-2 {
         display: none;
-    }
-    #green-bloc,#blue-bloc{
-        background-color: var(--white-bg);
-        width: 5%;
-        display: none;
-    } 
-    .center-bloc{
+    }   
+    .center-bloc, .center-bloc-about{
         width:  100% ;
         padding: 0 20px;
     }
@@ -575,21 +580,28 @@ a{
     }
     .bloc-contact{
         width: 100%;
+        height: 250px;
         padding: 0 20px;
+        flex-direction: column;
+    } 
+    .bloc-contact :nth-child(1){
+        order: 2;
+        
+    }   
+    .bloc-contact p{
+        font-size: 65px;
+        bottom: -25px;
+        align-self: self-start;
     }
-     #about{
+    .bloc-contact ul {
         width: 100%;
     }
-    
-    .bloc-contact p{
-        font-size: 75px;
-        bottom: -30px;
-    }
+
     .bloc-contact a{
         margin-bottom: 10px;
         padding: 0;
     }
-    .bigNumber{
+    .big-number{
         font-size: 120px;
         left: -9%; 
     }
@@ -614,7 +626,15 @@ a{
     .btn-arrow{
         height: 55px;
         width: 55px;
+    }  
+    #about img{
+        margin-bottom: 30px;
+        width: 100%;
+        height: 250px;
     }
-    
+    #about .paragraph{
+        font-size: 15px;
+    }
+   
 }
 

@@ -10,8 +10,8 @@ const sr= ScrollReveal({
 
 sr.reveal('.title');
 sr.reveal('.presentation', { delay: 700 });
-// sr.reveal('.green-bloc', { delay: 700 });
 sr.reveal('.container-CTA', { delay: 900, origin:'bottom'});
+sr.reveal('.paragraph', {delay:200, origin:'bottom'});
 
 
 window.addEventListener('scroll', () => {  
@@ -20,15 +20,46 @@ window.addEventListener('scroll', () => {
 
 //Parallax effect on blocs
 function blocParallax(){ 
-  var posicion = window.pageYOffset || document.documentElement.scrollTop;
+  var position = window.pageYOffset || document.documentElement.scrollTop;
 
-  var elemento1 = document.getElementById("green-bloc");
-  var elemento2 = document.getElementById("blue-bloc");
+  var greenElement = document.getElementById("green-bloc");
+  var blueElement = document.getElementById("blue-bloc");
 
-  elemento1.style.top = posicion * 0.4 + "px";
-  elemento2.style.top = posicion * 0.6 + "px";
+  greenElement.style.top = position * 0.8 + "px";
+  blueElement.style.top = position * 0.6 + "px";
 }
 
 
 let images = Array.from(document.querySelectorAll(".img-container"));
 console.log(images)
+
+
+//Changing background color
+
+$(window).on("scroll touchmove", function() {
+    if ($(document).scrollTop() >= $("#projet01").position().top /1.2 ) {
+      $("#projet01").css('background', $("#projet01").attr("data-color"));    
+    }
+    else{
+      $("#projet01").css('background', "#f4f4f4")
+    }
+    if ($(document).scrollTop() > $("#projet02").position().top/1.2) {
+      $("#projet02").css('background', $("#projet02").attr("data-color"))
+    }
+    else{
+      $("#projet02").css('background', "#f4f4f4")
+    }
+    if ($(document).scrollTop() > $("#projet03").position().top/1.2) {
+      $("#projet03").css('background', $("#projet03").attr("data-color"))
+    }
+    else{
+      $("#projet03").css('background', "#f4f4f4")
+    }
+    if ($(document).scrollTop() > $("#projet04").position().top/1.2) {
+      $("#projet04").css('background', $("#projet04").attr("data-color"))
+    }
+    else{
+      $("#projet04").css('background', "#f4f4f4")
+    }
+   
+ });
