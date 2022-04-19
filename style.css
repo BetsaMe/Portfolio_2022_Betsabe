@@ -87,6 +87,8 @@ header .home{
     margin: 0;
     border-right:var(--linesStyle);
     transition: 0.45s ease;
+    font-size: 18px;
+    font-weight: 400;
 }
 
 .home p{
@@ -101,7 +103,7 @@ header .home{
     align-items: center;
     text-transform: uppercase;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 500;
     border-left:var(--linesStyle);
     transition: 0.45s ease;
 }
@@ -201,6 +203,7 @@ a{
     margin: 0;
     width: 50%;
     padding-left: 20px;
+    line-height: 28px;
 }
 /* End of hero section */
 
@@ -289,7 +292,6 @@ a{
     position: relative;
 }
 .projet-title{
-    /* position: relative; */
     overflow: hidden; 
     display: flex;
     align-items: center;
@@ -308,10 +310,10 @@ a{
 }
 
 .projet-description{
-    padding: 20px 40px;
+    padding:  0 40px 20px;
     margin-bottom: 0;
+    line-height: 28px;
 }
-
 
 .projet-description p{
     font-size: 16px;
@@ -344,21 +346,6 @@ a{
     transition-property: background-color;
     transition-duration: 1s;
 }
-/* #projet01:hover, #projet02:hover, #projet03:hover, #projet04:hover{    
-    transition-property: background-color;
-    transition-duration: 1s;
-}
-
-#projet01:hover, #projet04:hover {
-    background-color: var(--blue);
-}
-
-#projet02:hover{
-    background-color: var(--violet);
-}
-#projet03:hover{
-    background-color: var(--green);
-} */
 
 .separator{
     height: 100px;
@@ -435,12 +422,6 @@ a{
 }
 /* End of contact section */
 
-/* main{
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    left: 0;
-} */
 
 /* About section */
 .center-bloc-about{
@@ -451,7 +432,12 @@ a{
     width: 50%;
 }
 .center-bloc-about .paragraph{
-    padding: 20px;
+    padding: 40px;
+    font-size: 18px;
+    line-height: 30px;
+}
+div.paragraph * {
+    margin-bottom: 35px;
 }
 .center-bloc-about img{
     object-fit: cover;
@@ -461,9 +447,10 @@ a{
     margin: 0;
     border-top: none;
 }
+
 @media only screen and (max-width: 1024px){
     .center-bloc-about .paragraph{
-        padding: 10px;
+        padding: 15px;
     }
 }
 @media only screen and (max-width: 768px){
@@ -567,7 +554,7 @@ a{
     }
 
     #about .paragraph{
-        padding: 10px;
+        padding: 30px;
         width: 100%;
     }   
     #about img{
@@ -643,8 +630,8 @@ a{
         height: 250px;
     }
     #about .paragraph{
-        font-size: 15px;
+        padding: 15px;
     }
-   
+    
 }
 
