@@ -91,8 +91,7 @@ header .home{
 }
 
 .home p{
-   padding-left: 30%;
-   margin: 0;
+   margin: 0 auto;
 }
 
 .btn-profile{
@@ -285,11 +284,20 @@ a{
     grid-column: 3/4;  
 }
 
-
 /* here the position is relative because the parallax */
 .projet-text{
     position: relative;
+}
+.projet-title{
+    /* position: relative; */
     overflow: hidden; 
+    display: flex;
+    align-items: center;
+}
+.projet-title h3{
+    margin: 0;
+    position: relative;
+    left: -5%; 
 }
 .big-number{
     position: relative;
@@ -304,9 +312,7 @@ a{
     margin-bottom: 0;
 }
 
-.projet-description h3{
-    margin: 0;
-}
+
 .projet-description p{
     font-size: 16px;
 }
@@ -476,7 +482,7 @@ a{
         flex-direction: column;
     }
     .container-CTA p{
-        margin-top: 90px;
+        margin-top: 60px;
         width: 100%;
         padding-left: 0px;
     }
@@ -509,11 +515,11 @@ a{
     h2{
         font-size:70px;        
         padding: 10px 15%;
+        margin-top: 35px;
     }
     .presentation{
         font-size:35px;
-    }
-    
+    }    
     .bloc-projet{ 
         grid-template-columns: 10% 1fr 10%;
         grid-template-rows: 350px 1fr;
@@ -533,6 +539,9 @@ a{
     .big-number{
         font-size: 140px;
         left: -5%; 
+    }
+    .projet-description{
+        padding: 10px 20px;
     }
     .img-container{
         border-bottom: var(--linesStyle);
@@ -576,7 +585,8 @@ a{
         padding: 0 20px;
     }
     .bloc-projet{
-        grid-template-columns: 1fr ;
+        grid-template-columns: 1fr;
+        grid-template-rows: 300px 1fr;
     }
     .bloc-contact{
         width: 100%;
@@ -590,7 +600,7 @@ a{
     }   
     .bloc-contact p{
         font-size: 65px;
-        bottom: -25px;
+        bottom: -30px;
         align-self: self-start;
     }
     .bloc-contact ul {
